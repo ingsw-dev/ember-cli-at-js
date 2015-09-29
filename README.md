@@ -1,25 +1,50 @@
-# Ember-cli-at-js
+# ember-cli-at-who
 
-This README outlines the details of collaborating on this Ember addon.
+A thin wrapper around [At.js](https://github.com/ichord/At.js).
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+`ember install ember-cli-at-js`
 
-## Running
+## Explanation
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+This addon wraps [At.js](https://github.com/ichord/At.js) and gives you an  [Ember.TextArea](http://emberjs.com/api/classes/Ember.TextArea.html)
+with an extra property called `settings`. This property is handled over to [At.js constructor](https://github.com/ichord/At.js/wiki/Base-Document#settings).
 
-## Running Tests
+## Sample Code
 
-* `ember test`
-* `ember test --server`
+```
+// /app/controller/application.js
+import Ember from 'ember';
 
-## Building
+export default Ember.Controller.extend({
 
-* `ember build`
+  settings: {
+    data: ['juan', 'pedro']
+  },
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+  value: null
+
+});
+```
+
+```
+// /app/templates/application.hbs
+{{at-who-textarea settings=settings value=value}}
+```
+
+## Other options
+
+Maybe you are creating your own component and want to drop off support for
+At.js, in that case you may want to use the [AtWhoSupport]() class that has
+everything the TextArea does but without subclassing it.
+
+```
+// /app/components/my-component.js
+import Ember from 'ember';
+import AtWhoSupport from 'ember-cli-at-js/mixins/at-who-support';
+
+export default Ember.Component.extend(AtWhoSupport, {
+});
+
+```

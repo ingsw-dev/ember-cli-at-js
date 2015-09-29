@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-at-js/components/at-who-textarea';
