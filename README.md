@@ -48,3 +48,31 @@ export default Ember.Component.extend(AtWhoSupport, {
 });
 
 ```
+
+## Styling
+
+By default this component ships with no styles but you can easily add them in
+your `ember-cli.build.js` file.
+
+```
+/* global require, module */
+var EmberApp = require('ember-cli/lib/broccoli/ember-addon');
+
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    // Add options here
+  });
+
+  // Linking to At.js default styles
+  app.import(app.bowerDirectory + '/At.js/dist/css/jquery.atwho.css');
+
+  /*
+    This build file specifes the options for the dummy test app of this
+    addon, located in `/tests/dummy`
+    This build file does *not* influence how the addon or the app using it
+    behave. You most likely want to be modifying `./index.js` or app's build file
+  */
+
+  return app.toTree();
+};
+```
