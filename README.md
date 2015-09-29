@@ -36,8 +36,8 @@ export default Ember.Controller.extend({
 ## Other options
 
 Maybe you are creating your own component and want to drop off support for
-At.js, in that case you may want to use the [AtWhoSupport]() class that has
-everything the TextArea does but without subclassing it.
+At.js, in that case you may want to use the [AtWhoSupport](https://github.com/cherta/ember-cli-at-js/tree/master/addon/mixins)
+class that has everything the TextArea does but without subclassing it.
 
 ```
 // /app/components/my-component.js
