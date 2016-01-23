@@ -13,7 +13,7 @@ export default Ember.Mixin.create({
   defaults: { at: '@' },
 
   calculatedSettings: Ember.computed('settings', 'defaults', function () {
-    return Ember.merge(this.get('settings'), this.get('defaults'));
+    return Ember.merge(this.get('defaults'), this.get('settings'));
   }),
 
   didInsertElement: function () {
