@@ -19,5 +19,9 @@ export default Ember.Mixin.create({
   didInsertElement: function () {
     this._super(...arguments);
     this.$().atwho(this.get('calculatedSettings'));
-  }
+  },
+
+  willDestroyElement: function() {
+    this.$().atwho('destroy');
+  },
 });
